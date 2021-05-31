@@ -105,12 +105,9 @@ function onPicturesClick(evt) {
   console.log(evt.target);
   
   evt.preventDefault();
-  // const swachEl = evt.target;
-  // const parrentPictureItem = swachEl('.js-lightbox');
-  // parrentPictureItem.classList.add("is-open")
-
+ 
   modal.classList.add("is-open");
-  originalImg.src = evt.target.src;
+ originalImg.src = evt.target.dataset.source;
   originalImg.alt = evt.target.alt;
 }
 
@@ -119,7 +116,7 @@ function onClose(evt) {
   console.log(evt.target.classList);
   if (
     evt.target.nodeName === "BUTTON" ||
-    evt.target.classList.contains("lightbox__overlay")
+    evt.target.classList.contains("lightbox__overlay") 
   ) {
     originalImg.src = "";
     modal.classList.remove("is-open");
